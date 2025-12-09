@@ -46,14 +46,15 @@ public partial class RepartirArticuloPage : ContentPage
         if (string.IsNullOrEmpty(codigo))
             return;
 
-        // En un sistema real, aquí buscarías el artículo en la base de datos
-        // Para este ejemplo simplificado, mostramos el código escaneado
+        // TODO: Implement full article lookup from database
+        // This requires additional stored procedures not present in the VB.NET version
+        // For now, we display the scanned code as a placeholder
         
         MainThread.BeginInvokeOnMainThread(() =>
         {
             _articuloActual = codigo;
             lblArticulo.Text = codigo;
-            lblNombreArticulo.Text = "Artículo escaneado";
+            lblNombreArticulo.Text = "Artículo escaneado - Implementar búsqueda completa";
             lblEAN13.Text = codigo.Length == 13 ? codigo : "N/A";
             lblPeso.Text = "0.000";
             lblVolumen.Text = "0.000";
@@ -156,10 +157,12 @@ public partial class RepartirArticuloPage : ContentPage
         {
             if (_dataAccess == null) return;
 
-            // En un sistema real, aquí insertarías el artículo en el BAC
-            // Por ahora, simulamos la operación exitosa
+            // TODO: Implement article distribution to BAC
+            // This requires additional stored procedures not present in the VB.NET version
+            // The VB.NET original doesn't have InsertaDetalleBac accessible here
+            // Would need: _dataAccess.InsertaDetalleBac(_bacDestino, _grupoBAC, _tablillaBAC, articuloId, cantidad, GlobalData.Usuario.Id);
             
-            MostrarMensaje($"Se han repartido {cantidad} unidades del artículo {_articuloActual} al BAC {_bacDestino}", TipoMensaje.MENSAJE_Exclamacion);
+            MostrarMensaje($"Funcionalidad pendiente: Repartir {cantidad} unidades del artículo {_articuloActual} al BAC {_bacDestino}.\nRequiere implementación de stored procedures adicionales.", TipoMensaje.MENSAJE_Informativo);
 
             // Limpiar para siguiente operación
             _articuloActual = "";

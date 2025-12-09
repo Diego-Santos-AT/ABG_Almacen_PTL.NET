@@ -110,11 +110,11 @@
 
             <!-- Botones de acción -->
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-                <Button Text="EMPAQUETAR"
+                <Button x:Name="btnEmpaquetar"
+                        Text="EMPAQUETAR"
                         Clicked="OnEmpaquetarClicked"
                         BackgroundColor="{DynamicResource Primary}"
-                        WidthRequest="150"
-                        IsEnabled="{Binding Source={x:Reference lblCodigo}, Path=Text, Converter={StaticResource StringToBoolConverter}}" />
+                        WidthRequest="150" />
                 <Button Text="SALIR"
                         Clicked="OnSalirClicked"
                         BackgroundColor="{DynamicResource Secondary}"

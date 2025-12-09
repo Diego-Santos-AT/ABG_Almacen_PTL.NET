@@ -1,16 +1,10 @@
 using ABG_Almacen_PTL.MAUI.DataAccess;
 using ABG_Almacen_PTL.MAUI.Modules;
+using ABG_Almacen_PTL.MAUI.Models;
 using System.Collections.ObjectModel;
 using System.Data;
 
 namespace ABG_Almacen_PTL.MAUI.Pages;
-
-public class ArticuloItem
-{
-    public string Codigo { get; set; } = "";
-    public string Nombre { get; set; } = "";
-    public string Cantidad { get; set; } = "";
-}
 
 public partial class ConsultaPTLPage : ContentPage
 {

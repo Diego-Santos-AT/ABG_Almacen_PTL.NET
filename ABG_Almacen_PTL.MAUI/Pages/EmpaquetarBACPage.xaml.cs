@@ -1,5 +1,6 @@
 using ABG_Almacen_PTL.MAUI.DataAccess;
 using ABG_Almacen_PTL.MAUI.Modules;
+using ABG_Almacen_PTL.MAUI.Models;
 using System.Collections.ObjectModel;
 using System.Data;
 
@@ -110,6 +111,7 @@ public partial class EmpaquetarBACPage : ContentPage
                     lblNumCaja.Text = unicaj;
                     lblPeso.Text = unipes.ToString("F3");
                     lblVolumen.Text = univol.ToString("F3");
+                    btnEmpaquetar.IsEnabled = true;
                 });
 
                 // Cargar artículos del BAC
@@ -401,6 +403,7 @@ public partial class EmpaquetarBACPage : ContentPage
             lblArts.Text = "";
             lblPeso.Text = "";
             lblVolumen.Text = "";
+            btnEmpaquetar.IsEnabled = false;
             _articulos.Clear();
         });
     }
