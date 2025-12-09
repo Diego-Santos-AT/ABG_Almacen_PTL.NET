@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ABG_Almacen_PTL.MAUI.Pages.LoginPage"
+             Title="ABG Almacén PTL - Inicio de Sesión"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+            
+            <!-- Logo o título de la aplicación -->
+            <Label Text="ABG Almacén PTL"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource Primary}" />
+
+            <Label Text="Sistema de Gestión de Almacén"
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,30" />
+
+            <!-- Estado de conexión -->
+            <Label x:Name="lblEstado"
+                   Text="Conectando..."
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   TextColor="Gray"
+                   Margin="0,0,0,10" />
+
+            <!-- Campo de Usuario -->
+            <Label Text="Usuario:" />
+            <Entry x:Name="txtUsuario"
+                   Placeholder="Introduce tu usuario"
+                   ReturnType="Next"
+                   Completed="OnUsuarioCompleted" />
+
+            <!-- Campo de Contraseña -->
+            <Label Text="Contraseña:" />
+            <Entry x:Name="txtPassword"
+                   Placeholder="Introduce tu contraseña"
+                   IsPassword="True"
+                   ReturnType="Done"
+                   Completed="OnPasswordCompleted" />
+
+            <!-- Campo de Empresa -->
+            <Label Text="Empresa:" />
+            <Picker x:Name="pickerEmpresa"
+                    Title="Selecciona una empresa" />
+
+            <!-- Campo de Puesto -->
+            <Label Text="Puesto de Trabajo:" />
+            <Picker x:Name="pickerPuesto"
+                    Title="Selecciona un puesto" />
+
+            <!-- Botones -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button x:Name="btnAceptar"
+                        Text="Aceptar"
+                        Grid.Column="0"
+                        Clicked="OnAceptarClicked"
+                        IsEnabled="False" />
+                <Button x:Name="btnCancelar"
+                        Text="Cancelar"
+                        Grid.Column="1"
+                        Clicked="OnCancelarClicked" />
+            </Grid>
+
+            <!-- Información de versión -->
+            <Label x:Name="lblVersion"
+                   Text="Versión 1.0.0"
+                   FontSize="10"
+                   HorizontalOptions="Center"
+                   Margin="0,30,0,0"
+                   TextColor="Gray" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

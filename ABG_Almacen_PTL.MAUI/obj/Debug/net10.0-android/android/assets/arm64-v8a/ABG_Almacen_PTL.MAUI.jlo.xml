@@ -1,0 +1,15 @@
+<api>
+  <jcw-types>
+    <type name="MainActivity" package="crc646e88fa4bc797b555" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiAppCompatActivity" partial_assembly_qualified_name="ABG_Almacen_PTL.MAUI.MainActivity, ABG_Almacen_PTL.MAUI">
+      <constructors>
+        <constructor name="MainActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+        <constructor name="MainActivity" method="n_.ctor:(I)V:" jni_signature="(I)V" managed_parameters="System.Int32, System.Private.CoreLib" params="int p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </constructors>
+    </type>
+    <type name="MainApplication" package="crc646e88fa4bc797b555" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiApplication" is_application="True" partial_assembly_qualified_name="ABG_Almacen_PTL.MAUI.MainApplication, ABG_Almacen_PTL.MAUI" application_constructor="MainApplication" />
+  </jcw-types>
+  <acw-types partial-assembly-name="ABG_Almacen_PTL.MAUI" module-name="ABG_Almacen_PTL.MAUI.dll">
+    <type assembly-qualified-name="ABG_Almacen_PTL.MAUI.MainActivity, ABG_Almacen_PTL.MAUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="abg_almacen_ptl.maui.MainActivity" java-key="crc646e88fa4bc797b555.MainActivity" managed-key="ABG_Almacen_PTL.MAUI.MainActivity" partial-assembly-qualified-name="ABG_Almacen_PTL.MAUI.MainActivity, ABG_Almacen_PTL.MAUI" />
+    <type assembly-qualified-name="ABG_Almacen_PTL.MAUI.MainApplication, ABG_Almacen_PTL.MAUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="abg_almacen_ptl.maui.MainApplication" java-key="crc646e88fa4bc797b555.MainApplication" managed-key="ABG_Almacen_PTL.MAUI.MainApplication" partial-assembly-qualified-name="ABG_Almacen_PTL.MAUI.MainApplication, ABG_Almacen_PTL.MAUI" />
+  </acw-types>
+</api>
