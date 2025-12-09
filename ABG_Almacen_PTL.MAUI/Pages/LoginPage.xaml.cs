@@ -64,11 +64,11 @@ public partial class LoginPage : ContentPage
             // Construir cadena de conexión
             if (!string.IsNullOrEmpty(GlobalData.BDDServLocal))
             {
-                GlobalData.ConexionConfig = $"Server={GlobalData.BDDServLocal};Database={GlobalData.BDDConfig};User Id={GlobalData.UsrBDDConfig};Password={GlobalData.UsrKeyConfig};Connect Timeout={GlobalData.BDDTime};TrustServerCertificate=True;Encrypt=False;";
+                GlobalData.ConexionConfig = $"Server={GlobalData.BDDServLocal};Database={GlobalData.BDDConfig};User Id={GlobalData.UsrBDDConfig};Password={GlobalData.UsrKeyConfig};Connect Timeout={Constants.CTE_TimeoutPruebaConexion};TrustServerCertificate=True;Encrypt=False;";
             }
 
-            // Verificar conexión
-            await VerificarConexion();
+            // Verificar conexión con timeout
+            await Task.Run(async () => await VerificarConexion());
 
             // Cargar usuario por defecto si existe
             if (!string.IsNullOrEmpty(GlobalData.UsrDefault))
@@ -86,31 +86,69 @@ public partial class LoginPage : ContentPage
 
     private async Task VerificarConexion()
     {
+        await MainThread.InvokeOnMainThreadAsync(() =>
+        {
+            lblEstado.Text = $"Conectando con el Servidor {GlobalData.BDDServLocal}...";
+        });
+
         try
         {
-            lblEstado.Text = "Verificando conexión...";
-            
             if (string.IsNullOrEmpty(GlobalData.ConexionConfig))
             {
-                lblEstado.Text = "Error: No hay configuración de conexión";
+                await MainThread.InvokeOnMainThreadAsync(() =>
+                {
+                    lblEstado.Text = "Error: No hay configuración de conexión";
+                });
                 await DisplayAlert("Error", "No se ha configurado la conexión a la base de datos. Verifique el archivo de configuración.", "OK");
                 return;
             }
 
-            _dataAccess = new ConfigDataAccess(GlobalData.ConexionConfig);
-            _dataAccess.Open();
+            // Intentar conexión con timeout
+            var connectionTask = Task.Run(() =>
+            {
+                _dataAccess = new ConfigDataAccess(GlobalData.ConexionConfig);
+                _dataAccess.Open();
+                return true;
+            });
+
+            // Esperar con timeout
+            var timeoutTask = Task.Delay(TimeSpan.FromSeconds(Constants.CTE_TimeoutPruebaConexion));
+            var completedTask = await Task.WhenAny(connectionTask, timeoutTask);
+
+            if (completedTask == timeoutTask)
+            {
+                await MainThread.InvokeOnMainThreadAsync(() =>
+                {
+                    lblEstado.Text = "Error de conexión: Tiempo de espera agotado";
+                });
+                await DisplayAlert("Error de Conexión",
+                    $"No se pudo conectar al servidor {GlobalData.BDDServLocal}.\n\nVerifique que:\n- El servidor esté encendido y accesible\n- El nombre del servidor en configuración sea correcto\n- Tiene conexión a la red",
+                    "OK");
+                return;
+            }
+
+            if (!connectionTask.Result)
+            {
+                throw new Exception("No se pudo establecer la conexión");
+            }
 
             // Cargar puestos
             await CargarPuestos();
 
-            lblEstado.Text = "Conectado";
-            btnAceptar.IsEnabled = true;
+            await MainThread.InvokeOnMainThreadAsync(() =>
+            {
+                lblEstado.Text = "Listo para iniciar sesión";
+                btnAceptar.IsEnabled = true;
+            });
         }
         catch (Exception ex)
         {
-            lblEstado.Text = "Error de conexión";
-            await DisplayAlert("Error de Conexión", 
-                $"No se pudo conectar a la base de datos:\n{ex.Message}\n\nVerifique la configuración de red y base de datos.", 
+            await MainThread.InvokeOnMainThreadAsync(() =>
+            {
+                lblEstado.Text = "Error de conexión";
+            });
+            await DisplayAlert("Error de Conexión",
+                $"No se pudo conectar al servidor {GlobalData.BDDServLocal}:\n{ex.Message}\n\nVerifique la configuración de red y base de datos.",
                 "OK");
         }
     }
@@ -229,24 +267,48 @@ public partial class LoginPage : ContentPage
             // Guardar usuario por defecto
             ConfigurationHelper.WriteConfig("Varios", "UsrDefault", txtUsuario.Text);
 
-            // Cargar empresas del usuario
+            // Cargar empresas del usuario - IMPORTANTE: Debe hacerse después de validar el usuario
+            lblEstado.Text = "Cargando empresas...";
             await CargarEmpresas();
 
-            // Si hay empresa seleccionada, continuar
-            if (pickerEmpresa.SelectedItem != null)
+            // Validar que se haya seleccionado una empresa
+            if (pickerEmpresa.SelectedItem == null)
             {
-                var empresaItem = (EmpresaItem)pickerEmpresa.SelectedItem;
-                GlobalData.CodEmpresa = empresaItem.Id;
-                ConfigurationHelper.WriteConfig("Varios", "EmpDefault", empresaItem.Id.ToString());
+                if (pickerEmpresa.ItemsSource is List<EmpresaItem> empresas && empresas.Count == 0)
+                {
+                    await DisplayAlert("Error", "No tiene asignada ninguna empresa.\nConsulte con el departamento de informática.", "OK");
+                    btnAceptar.IsEnabled = true;
+                    return;
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Debe seleccionar una empresa", "OK");
+                    pickerEmpresa.Focus();
+                    btnAceptar.IsEnabled = true;
+                    return;
+                }
             }
 
-            // Guardar puesto seleccionado
-            if (pickerPuesto.SelectedItem != null)
+            // Validar que se haya seleccionado un puesto
+            if (pickerPuesto.SelectedItem == null)
             {
-                var puestoItem = (PuestoItem)pickerPuesto.SelectedItem;
-                GlobalData.wPuestoTrabajo.Id = puestoItem.Id;
-                ConfigurationHelper.WriteConfig("Varios", "PueDefault", puestoItem.Id.ToString());
+                await DisplayAlert("Error", "Debe seleccionar un puesto de trabajo", "OK");
+                pickerPuesto.Focus();
+                btnAceptar.IsEnabled = true;
+                return;
             }
+
+            // Guardar empresa seleccionada
+            var empresaItem = (EmpresaItem)pickerEmpresa.SelectedItem;
+            GlobalData.CodEmpresa = empresaItem.Id;
+            GlobalData.Empresa = empresaItem.Nombre;
+            ConfigurationHelper.WriteConfig("Varios", "EmpDefault", empresaItem.Id.ToString());
+
+            // Guardar puesto seleccionado
+            var puestoItem = (PuestoItem)pickerPuesto.SelectedItem;
+            GlobalData.wPuestoTrabajo.Id = puestoItem.Id;
+            GlobalData.wPuestoTrabajo.Descripcion = puestoItem.Descripcion;
+            ConfigurationHelper.WriteConfig("Varios", "PueDefault", puestoItem.Id.ToString());
 
             LoginSucceeded = true;
             GlobalData.LoginSucceeded = true;

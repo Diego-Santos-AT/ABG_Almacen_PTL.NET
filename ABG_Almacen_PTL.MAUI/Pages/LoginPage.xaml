@@ -3,76 +3,112 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ABG_Almacen_PTL.MAUI.Pages.LoginPage"
              Title="ABG Almacén PTL - Inicio de Sesión"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             BackgroundColor="#0060B0">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+        <VerticalStackLayout Spacing="15" Padding="30" VerticalOptions="Center">
             
             <!-- Logo o título de la aplicación -->
             <Label Text="ABG Almacén PTL"
                    FontSize="32"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
-                   TextColor="{DynamicResource Primary}" />
+                   TextColor="White"
+                   Margin="0,10,0,0" />
 
             <Label Text="Sistema de Gestión de Almacén"
                    FontSize="16"
                    HorizontalOptions="Center"
-                   Margin="0,0,0,30" />
+                   TextColor="#E0E0E0"
+                   Margin="0,0,0,10" />
 
             <!-- Estado de conexión -->
             <Label x:Name="lblEstado"
-                   Text="Conectando..."
+                   Text="Iniciando..."
                    FontSize="12"
                    HorizontalOptions="Center"
-                   TextColor="Gray"
-                   Margin="0,0,0,10" />
+                   TextColor="#C0C0C0"
+                   Margin="0,0,0,20" />
 
             <!-- Campo de Usuario -->
-            <Label Text="Usuario:" />
+            <Label Text="Usuario:"
+                   FontSize="14"
+                   TextColor="#E0E0E0" />
             <Entry x:Name="txtUsuario"
                    Placeholder="Introduce tu usuario"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
+                   FontSize="14"
+                   FontAttributes="Bold"
                    ReturnType="Next"
                    Completed="OnUsuarioCompleted" />
 
             <!-- Campo de Contraseña -->
-            <Label Text="Contraseña:" />
+            <Label Text="Contraseña:"
+                   FontSize="14"
+                   TextColor="#E0E0E0" />
             <Entry x:Name="txtPassword"
                    Placeholder="Introduce tu contraseña"
                    IsPassword="True"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
+                   FontSize="14"
+                   FontAttributes="Bold"
                    ReturnType="Done"
                    Completed="OnPasswordCompleted" />
 
             <!-- Campo de Empresa -->
-            <Label Text="Empresa:" />
+            <Label Text="Empresa:"
+                   FontSize="14"
+                   TextColor="#E0E0E0" />
             <Picker x:Name="pickerEmpresa"
-                    Title="Selecciona una empresa" />
+                    Title="Selecciona una empresa"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    FontSize="14" />
 
             <!-- Campo de Puesto -->
-            <Label Text="Puesto de Trabajo:" />
+            <Label Text="Puesto de Trabajo:"
+                   FontSize="14"
+                   TextColor="#E0E0E0" />
             <Picker x:Name="pickerPuesto"
-                    Title="Selecciona un puesto" />
+                    Title="Selecciona un puesto"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    FontSize="14" />
 
             <!-- Botones -->
-            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15" Margin="0,25,0,0">
                 <Button x:Name="btnAceptar"
                         Text="Aceptar"
                         Grid.Column="0"
                         Clicked="OnAceptarClicked"
-                        IsEnabled="False" />
+                        IsEnabled="False"
+                        BackgroundColor="#50B450"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HeightRequest="50" />
                 <Button x:Name="btnCancelar"
                         Text="Cancelar"
                         Grid.Column="1"
-                        Clicked="OnCancelarClicked" />
+                        Clicked="OnCancelarClicked"
+                        BackgroundColor="#B45050"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HeightRequest="50" />
             </Grid>
 
             <!-- Información de versión -->
             <Label x:Name="lblVersion"
-                   Text="Versión 1.0.0"
+                   Text="Versión 2.0.0 - .NET MAUI"
                    FontSize="10"
                    HorizontalOptions="Center"
                    Margin="0,30,0,0"
-                   TextColor="Gray" />
+                   TextColor="#C0C0C0" />
 
         </VerticalStackLayout>
     </ScrollView>

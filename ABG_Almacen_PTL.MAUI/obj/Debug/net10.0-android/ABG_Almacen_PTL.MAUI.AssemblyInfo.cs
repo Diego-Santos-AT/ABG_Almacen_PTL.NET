@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ABG_Almacen_PTL.MAUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+827cb0b2d91eedb2774edfd2418f5fe5385f1c1f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4dddd17d2c2935196f9d3f55e1be9acb8f8f1d63")]
 [assembly: System.Reflection.AssemblyProductAttribute("ABG_Almacen_PTL.MAUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ABG_Almacen_PTL.MAUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
