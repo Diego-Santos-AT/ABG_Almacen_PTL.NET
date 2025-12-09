@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ABG_Almacen_PTL.NET", "ABG_Almacen_PTL.NET", "{EC35ECC0-291B-7DFA-7F72-9DD9BF5E9960}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ABG_Almacen_PTL.NET", "ABG_Almacen_PTL.NET\ABG_Almacen_PTL.NET\ABG_Almacen_PTL.NET.vbproj", "{D669636A-0571-491D-94EE-8B476D75583C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D669636A-0571-491D-94EE-8B476D75583C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Debug|x64.Build.0 = Debug|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Debug|x86.Build.0 = Debug|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Release|x64.ActiveCfg = Release|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Release|x64.Build.0 = Release|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Release|x86.ActiveCfg = Release|Any CPU
+		{D669636A-0571-491D-94EE-8B476D75583C}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D669636A-0571-491D-94EE-8B476D75583C} = {EC35ECC0-291B-7DFA-7F72-9DD9BF5E9960}
+	EndGlobalSection
+EndGlobal
