@@ -17,4 +17,29 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <ShellContent
+        Title="Ubicar BAC"
+        ContentTemplate="{DataTemplate pages:UbicarBACPage}"
+        Route="UbicarBACPage" />
+
+    <ShellContent
+        Title="Extraer BAC"
+        ContentTemplate="{DataTemplate pages:ExtraerBACPage}"
+        Route="ExtraerBACPage" />
+
+    <ShellContent
+        Title="Empaquetar BAC"
+        ContentTemplate="{DataTemplate pages:EmpaquetarBACPage}"
+        Route="EmpaquetarBACPage" />
+
+    <ShellContent
+        Title="Consulta PTL"
+        ContentTemplate="{DataTemplate pages:ConsultaPTLPage}"
+        Route="ConsultaPTLPage" />
+
+    <ShellContent
+        Title="Repartir Artículo"
+        ContentTemplate="{DataTemplate pages:RepartirArticuloPage}"
+        Route="RepartirArticuloPage" />
+
 </Shell>
