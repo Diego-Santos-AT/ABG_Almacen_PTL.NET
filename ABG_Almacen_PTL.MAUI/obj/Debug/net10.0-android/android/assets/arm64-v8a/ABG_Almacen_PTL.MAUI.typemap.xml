@@ -1,4 +1,4 @@
-<api type="debug" assembly-name="ABG_Almacen_PTL.MAUI" mvid="e3d110434fc544afb678d9fbd4ff21ed">
+<api type="debug" assembly-name="ABG_Almacen_PTL.MAUI" mvid="8c9c01fe0aec4090a82cd40fa7f840b8">
   <java-to-managed>
     <entry java-name="crc646e88fa4bc797b555/MainActivity" managed-name="ABG_Almacen_PTL.MAUI.MainActivity, ABG_Almacen_PTL.MAUI" managed-type-token-id="33554441" />
     <entry java-name="crc646e88fa4bc797b555/MainApplication" managed-name="ABG_Almacen_PTL.MAUI.MainApplication, ABG_Almacen_PTL.MAUI" managed-type-token-id="33554442" />
