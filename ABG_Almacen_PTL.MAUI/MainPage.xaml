@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ABG_Almacen_PTL.MAUI.MainPage"
+             Title="ABG Almacén PTL - Menú Principal">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+            
+            <!-- Título -->
+            <Label Text="ABG Almacén PTL"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource Primary}" />
+
+            <Label Text="Sistema de Gestión de Almacén"
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,20" />
+
+            <!-- Información del usuario -->
+            <Frame BorderColor="{DynamicResource Primary}" 
+                   Padding="15"
+                   CornerRadius="10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Información de Sesión" 
+                           FontAttributes="Bold" 
+                           FontSize="16" />
+                    <Label x:Name="lblUsuario" Text="Usuario: " />
+                    <Label x:Name="lblEmpresa" Text="Empresa: " />
+                    <Label x:Name="lblPuesto" Text="Puesto: " />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Opciones del menú principal -->
+            <Label Text="Opciones del Menú"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,10" />
+
+            <Button Text="Ubicar BAC"
+                    Clicked="OnUbicarBACClicked"
+                    HorizontalOptions="Fill" />
+
+            <Button Text="Extraer BAC"
+                    Clicked="OnExtraerBACClicked"
+                    HorizontalOptions="Fill" />
+
+            <Button Text="Empaquetar BAC"
+                    Clicked="OnEmpaquetarBACClicked"
+                    HorizontalOptions="Fill" />
+
+            <Button Text="Consulta PTL"
+                    Clicked="OnConsultaPTLClicked"
+                    HorizontalOptions="Fill" />
+
+            <Button Text="Repartir Artículo"
+                    Clicked="OnRepartirArticuloClicked"
+                    HorizontalOptions="Fill" />
+
+            <!-- Botón de cerrar sesión -->
+            <Button Text="Cerrar Sesión"
+                    Clicked="OnCerrarSesionClicked"
+                    BackgroundColor="{DynamicResource Secondary}"
+                    Margin="0,30,0,0"
+                    HorizontalOptions="Fill" />
+
+            <!-- Versión -->
+            <Label Text="Versión 1.0.0 - .NET MAUI"
+                   FontSize="10"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0"
+                   TextColor="Gray" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
