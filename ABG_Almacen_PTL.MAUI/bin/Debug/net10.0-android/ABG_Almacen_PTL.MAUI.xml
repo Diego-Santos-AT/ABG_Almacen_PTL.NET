@@ -4,6 +4,11 @@
         <name>ABG_Almacen_PTL.MAUI</name>
     </assembly>
     <members>
+        <member name="T:ABG_Almacen_PTL.MAUI.Models.ArticuloItem">
+            <summary>
+            Representa un artículo con su información básica para visualización
+            </summary>
+        </member>
         <member name="T:ABG_Almacen_PTL.MAUI.Resource">
             <summary>
             Android Resource Designer class.

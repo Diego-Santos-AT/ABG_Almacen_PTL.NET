@@ -56,11 +56,61 @@ build_metadata.AdditionalFiles.NoWarn =
 build_metadata.AdditionalFiles.EnableDiagnostics = 
 build_metadata.AdditionalFiles.LineInfo = 
 
+[/home/runner/work/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.MAUI/Pages/ConsultaPTLPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ABG_Almacen_PTL.MAUI.Pages.ConsultaPTLPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages/ConsultaPTLPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages/ConsultaPTLPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/home/runner/work/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.MAUI/Pages/EmpaquetarBACPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ABG_Almacen_PTL.MAUI.Pages.EmpaquetarBACPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages/EmpaquetarBACPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages/EmpaquetarBACPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/home/runner/work/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.MAUI/Pages/ExtraerBACPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ABG_Almacen_PTL.MAUI.Pages.ExtraerBACPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages/ExtraerBACPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages/ExtraerBACPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
 [/home/runner/work/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.MAUI/Pages/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ABG_Almacen_PTL.MAUI.Pages.LoginPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages/LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages/LoginPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/home/runner/work/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.MAUI/Pages/RepartirArticuloPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ABG_Almacen_PTL.MAUI.Pages.RepartirArticuloPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages/RepartirArticuloPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages/RepartirArticuloPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/home/runner/work/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.NET/ABG_Almacen_PTL.MAUI/Pages/UbicarBACPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ABG_Almacen_PTL.MAUI.Pages.UbicarBACPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages/UbicarBACPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages/UbicarBACPage.xaml
 build_metadata.AdditionalFiles.Inflator = Runtime
 build_metadata.AdditionalFiles.NoWarn = 
 build_metadata.AdditionalFiles.EnableDiagnostics = 
