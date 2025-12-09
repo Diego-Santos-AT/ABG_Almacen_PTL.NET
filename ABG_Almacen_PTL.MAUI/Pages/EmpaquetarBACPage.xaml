@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ABG_Almacen_PTL.MAUI.Pages.EmpaquetarBACPage"
+             Title="Empaquetar BAC">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            
+            <!-- Título -->
+            <Label Text="EMPAQUETAR BAC"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource Primary}" />
+
+            <!-- Instrucciones -->
+            <Frame BorderColor="{DynamicResource Primary}" Padding="10" CornerRadius="5">
+                <Label Text="Escanear BAC o CAJA para empaquetar"
+                       HorizontalTextAlignment="Center"
+                       FontSize="14" />
+            </Frame>
+
+            <!-- Campo de lectura -->
+            <Entry x:Name="txtLecturaCodigo"
+                   Placeholder="Escanear código..."
+                   FontSize="18"
+                   MaxLength="36"
+                   Completed="OnCodigoCompleted"
+                   Focused="OnEntryFocused"
+                   Unfocused="OnEntryUnfocused" />
+
+            <!-- Frame de datos del BAC/CAJA -->
+            <Frame BorderColor="Gray" Padding="15" CornerRadius="5">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" RowSpacing="10" ColumnSpacing="10">
+                    
+                    <!-- BAC/CAJA -->
+                    <Label x:Name="lblTipoLabel" Text="BAC:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" />
+                    <Label x:Name="lblCodigo" Grid.Row="0" Grid.Column="1" BackgroundColor="White" Padding="5" />
+
+                    <!-- Grupo / Tablilla / Caja -->
+                    <Label Text="Grupo:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Spacing="10">
+                        <Label x:Name="lblGrupo" BackgroundColor="White" Padding="5" WidthRequest="50" />
+                        <Label Text="Tablilla:" FontAttributes="Bold" />
+                        <Label x:Name="lblTablilla" BackgroundColor="White" Padding="5" WidthRequest="40" />
+                        <Label Text="Caja:" FontAttributes="Bold" />
+                        <Label x:Name="lblNumCaja" BackgroundColor="White" Padding="5" WidthRequest="40" />
+                    </HorizontalStackLayout>
+
+                    <!-- Uds / Peso / Volumen -->
+                    <Label Text="Unidades:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="2" Grid.Column="1" Spacing="10">
+                        <Label x:Name="lblUds" BackgroundColor="White" Padding="5" WidthRequest="60" />
+                        <Label Text="Arts:" FontAttributes="Bold" />
+                        <Label x:Name="lblArts" BackgroundColor="White" Padding="5" WidthRequest="40" />
+                    </HorizontalStackLayout>
+
+                    <!-- Peso / Volumen -->
+                    <Label Text="Peso:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="3" Grid.Column="1" Spacing="10">
+                        <Label x:Name="lblPeso" BackgroundColor="White" Padding="5" WidthRequest="80" />
+                        <Label Text="Volumen:" FontAttributes="Bold" />
+                        <Label x:Name="lblVolumen" BackgroundColor="White" Padding="5" WidthRequest="80" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Opciones de empaquetado -->
+            <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Opciones de Empaquetado" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CheckBox x:Name="chkCerrarBAC">
+                        <CheckBox.Behaviors>
+                            <DataTrigger TargetType="CheckBox" Binding="{Binding Source={x:Reference chkCerrarBAC}, Path=IsChecked}" Value="True">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </CheckBox.Behaviors>
+                    </CheckBox>
+                    <Label Text="Cerrar BAC abiertos" />
+                    
+                    <CheckBox x:Name="chkExtraerBAC" />
+                    <Label Text="Extraer BAC ubicados" />
+                    
+                    <CheckBox x:Name="chkCrearCaja" IsChecked="True" />
+                    <Label Text="Crear caja según BAC" />
+                    
+                    <CheckBox x:Name="chkImprimirEtiqueta" />
+                    <Label Text="Imprimir etiqueta de caja" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Lista de artículos -->
+            <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Artículos en el BAC" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView x:Name="collectionArticulos" HeightRequest="150">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="60,*,60" Padding="5" ColumnSpacing="10">
+                                    <Label Grid.Column="0" Text="{Binding Codigo}" FontSize="12" />
+                                    <Label Grid.Column="1" Text="{Binding Nombre}" FontSize="12" />
+                                    <Label Grid.Column="2" Text="{Binding Cantidad}" FontSize="12" HorizontalOptions="End" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botones de acción -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button x:Name="btnEmpaquetar"
+                        Text="EMPAQUETAR"
+                        Clicked="OnEmpaquetarClicked"
+                        BackgroundColor="{DynamicResource Primary}"
+                        WidthRequest="150" />
+                <Button Text="SALIR"
+                        Clicked="OnSalirClicked"
+                        BackgroundColor="{DynamicResource Secondary}"
+                        WidthRequest="120" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

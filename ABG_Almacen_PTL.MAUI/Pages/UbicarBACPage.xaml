@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ABG_Almacen_PTL.MAUI.Pages.UbicarBACPage"
+             Title="Ubicar BAC">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            
+            <!-- Título -->
+            <Label Text="UBICAR BAC"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource Primary}" />
+
+            <!-- Instrucciones -->
+            <Frame BorderColor="{DynamicResource Primary}" Padding="10" CornerRadius="5">
+                <Label Text="Leer BAC o Ubicación de PTL"
+                       HorizontalTextAlignment="Center"
+                       FontSize="14" />
+            </Frame>
+
+            <!-- Campo de lectura -->
+            <Entry x:Name="txtLecturaCodigo"
+                   Placeholder="Escanear código..."
+                   FontSize="18"
+                   MaxLength="36"
+                   Completed="OnCodigoCompleted"
+                   Focused="OnEntryFocused"
+                   Unfocused="OnEntryUnfocused" />
+
+            <!-- Opciones de estado del BAC -->
+            <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
+                <VerticalStackLayout Spacing="10">
+                    <RadioButton x:Name="rbCerrarBAC"
+                                 Content="Cerrar BAC"
+                                 GroupName="EstadoBAC" />
+                    <RadioButton x:Name="rbAbrirBAC"
+                                 Content="Abrir BAC"
+                                 GroupName="EstadoBAC"
+                                 IsChecked="True" />
+                    <Button Text="CANCELAR"
+                            Clicked="OnCancelarClicked"
+                            HorizontalOptions="End" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Frame de datos del BAC -->
+            <Frame BorderColor="Gray" Padding="15" CornerRadius="5">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" RowSpacing="10" ColumnSpacing="10">
+                    
+                    <!-- Ubicación -->
+                    <Label Text="Ubicación:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" />
+                    <Label x:Name="lblUbicacion" Grid.Row="0" Grid.Column="1" BackgroundColor="White" Padding="5" />
+
+                    <!-- BAC -->
+                    <Label Text="BAC:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Spacing="5">
+                        <Label x:Name="lblBAC" BackgroundColor="White" Padding="5" WidthRequest="150" />
+                        <Label x:Name="lblEstadoBAC" BackgroundColor="White" Padding="5" WidthRequest="80" />
+                    </HorizontalStackLayout>
+
+                    <!-- Grupo / Tablilla / Uds -->
+                    <Label Text="Grupo:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="2" Grid.Column="1" Spacing="10">
+                        <Label x:Name="lblGrupo" BackgroundColor="White" Padding="5" WidthRequest="50" />
+                        <Label Text="Tablilla:" FontAttributes="Bold" />
+                        <Label x:Name="lblTablilla" BackgroundColor="White" Padding="5" WidthRequest="40" />
+                        <Label Text="Uds:" FontAttributes="Bold" />
+                        <Label x:Name="lblUds" BackgroundColor="White" Padding="5" WidthRequest="40" />
+                    </HorizontalStackLayout>
+
+                    <!-- Peso / Volumen -->
+                    <Label Text="Peso:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="3" Grid.Column="1" Spacing="10">
+                        <Label x:Name="lblPeso" BackgroundColor="White" Padding="5" WidthRequest="80" />
+                        <Label Text="Volumen:" FontAttributes="Bold" />
+                        <Label x:Name="lblVolumen" BackgroundColor="White" Padding="5" WidthRequest="80" />
+                    </HorizontalStackLayout>
+
+                    <!-- Tipo de Caja -->
+                    <Label Text="Tipo Caja:" Grid.Row="4" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="4" Grid.Column="1" Spacing="5">
+                        <Label x:Name="lblTipoCaja" BackgroundColor="White" Padding="5" WidthRequest="40" />
+                        <Label x:Name="lblNombreCaja" BackgroundColor="White" Padding="5" WidthRequest="150" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Botones de acción -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="SALIR"
+                        Clicked="OnSalirClicked"
+                        BackgroundColor="{DynamicResource Secondary}"
+                        WidthRequest="120" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

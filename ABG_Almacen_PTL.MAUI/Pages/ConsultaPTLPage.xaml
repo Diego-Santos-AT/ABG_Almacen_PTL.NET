@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ABG_Almacen_PTL.MAUI.Pages.ConsultaPTLPage"
+             Title="Consulta PTL">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            
+            <!-- Título -->
+            <Label Text="CONSULTA PTL"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource Primary}" />
+
+            <!-- Instrucciones -->
+            <Frame BorderColor="{DynamicResource Primary}" Padding="10" CornerRadius="5">
+                <Label Text="Leer BAC, Ubicación PTL o CAJA"
+                       HorizontalTextAlignment="Center"
+                       FontSize="14" />
+            </Frame>
+
+            <!-- Campo de lectura -->
+            <Entry x:Name="txtLecturaCodigo"
+                   Placeholder="Escanear código..."
+                   FontSize="18"
+                   MaxLength="36"
+                   Completed="OnCodigoCompleted"
+                   Focused="OnEntryFocused"
+                   Unfocused="OnEntryUnfocused" />
+
+            <!-- Frame de datos -->
+            <Frame BorderColor="Gray" Padding="15" CornerRadius="5">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" RowSpacing="10" ColumnSpacing="10">
+                    
+                    <!-- Tipo -->
+                    <Label x:Name="lblTipo" Text="BAC" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                           FontAttributes="Bold" FontSize="16" HorizontalOptions="Center" />
+
+                    <!-- Ubicación -->
+                    <Label Text="Ubicación:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold" />
+                    <Label x:Name="lblUbicacion" Grid.Row="1" Grid.Column="1" BackgroundColor="White" Padding="5" />
+
+                    <!-- Código (BAC/CAJA) -->
+                    <Label Text="Código:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" />
+                    <Label x:Name="lblCodigo" Grid.Row="2" Grid.Column="1" BackgroundColor="White" Padding="5" />
+
+                    <!-- Grupo / Tablilla / Caja -->
+                    <Label Text="Grupo:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="3" Grid.Column="1" Spacing="10">
+                        <Label x:Name="lblGrupo" BackgroundColor="White" Padding="5" WidthRequest="50" />
+                        <Label Text="Tablilla:" FontAttributes="Bold" />
+                        <Label x:Name="lblTablilla" BackgroundColor="White" Padding="5" WidthRequest="40" />
+                        <Label Text="Caja:" FontAttributes="Bold" />
+                        <Label x:Name="lblNumCaja" BackgroundColor="White" Padding="5" WidthRequest="40" />
+                    </HorizontalStackLayout>
+
+                    <!-- Uds / Artículos -->
+                    <Label Text="Unidades:" Grid.Row="4" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="4" Grid.Column="1" Spacing="10">
+                        <Label x:Name="lblUds" BackgroundColor="White" Padding="5" WidthRequest="60" />
+                        <Label Text="Artículos:" FontAttributes="Bold" />
+                        <Label x:Name="lblArts" BackgroundColor="White" Padding="5" WidthRequest="40" />
+                    </HorizontalStackLayout>
+
+                    <!-- Peso / Volumen -->
+                    <Label Text="Peso:" Grid.Row="5" Grid.Column="0" FontAttributes="Bold" />
+                    <HorizontalStackLayout Grid.Row="5" Grid.Column="1" Spacing="10">
+                        <Label x:Name="lblPeso" BackgroundColor="White" Padding="5" WidthRequest="80" />
+                        <Label Text="Volumen:" FontAttributes="Bold" />
+                        <Label x:Name="lblVolumen" BackgroundColor="White" Padding="5" WidthRequest="80" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Lista de artículos -->
+            <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Artículos Contenidos" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView x:Name="collectionArticulos" HeightRequest="200">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="60,*,60" Padding="5" ColumnSpacing="10">
+                                    <Label Grid.Column="0" Text="{Binding Codigo}" FontSize="12" />
+                                    <Label Grid.Column="1" Text="{Binding Nombre}" FontSize="12" />
+                                    <Label Grid.Column="2" Text="{Binding Cantidad}" FontSize="12" HorizontalOptions="End" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botones de acción -->
+            <Button Text="SALIR"
+                    Clicked="OnSalirClicked"
+                    BackgroundColor="{DynamicResource Secondary}"
+                    HorizontalOptions="Center"
+                    WidthRequest="120" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

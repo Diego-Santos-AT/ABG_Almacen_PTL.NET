@@ -34,12 +34,12 @@ ABG Almacén PTL es un sistema de gestión de almacén que proporciona funcional
 - ✅ Arquitectura de datos compartida (GlobalData, Constants)
 - ✅ Capa de acceso a datos (ConfigDataAccess)
 
-### Módulos del Sistema (Pendientes de Implementación)
-- 🔄 Ubicar BAC
-- 🔄 Extraer BAC
-- 🔄 Empaquetar BAC
-- 🔄 Consulta PTL
-- 🔄 Repartir Artículo
+### Módulos del Sistema (Implementados)
+- ✅ Ubicar BAC - Ubicación de BACs en ubicaciones PTL con validación y cambio de estado
+- ✅ Extraer BAC - Extracción de BACs de ubicaciones PTL con opciones de estado
+- ✅ Empaquetar BAC - Empaquetado rápido de BACs a cajas con generación de SSCC
+- ✅ Consulta PTL - Consulta de BACs, ubicaciones y cajas con detalles de artículos
+- ✅ Repartir Artículo - Reparto de artículos entre BACs con control de cantidad
 
 ## Requisitos
 

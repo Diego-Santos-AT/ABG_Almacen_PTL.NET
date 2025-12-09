@@ -25,27 +25,27 @@ public partial class MainPage : ContentPage
 
 	private async void OnUbicarBACClicked(object sender, EventArgs e)
 	{
-		await DisplayAlert("En Desarrollo", "La funcionalidad 'Ubicar BAC' estará disponible próximamente.", "OK");
+		await Shell.Current.GoToAsync("UbicarBACPage");
 	}
 
 	private async void OnExtraerBACClicked(object sender, EventArgs e)
 	{
-		await DisplayAlert("En Desarrollo", "La funcionalidad 'Extraer BAC' estará disponible próximamente.", "OK");
+		await Shell.Current.GoToAsync("ExtraerBACPage");
 	}
 
 	private async void OnEmpaquetarBACClicked(object sender, EventArgs e)
 	{
-		await DisplayAlert("En Desarrollo", "La funcionalidad 'Empaquetar BAC' estará disponible próximamente.", "OK");
+		await Shell.Current.GoToAsync("EmpaquetarBACPage");
 	}
 
 	private async void OnConsultaPTLClicked(object sender, EventArgs e)
 	{
-		await DisplayAlert("En Desarrollo", "La funcionalidad 'Consulta PTL' estará disponible próximamente.", "OK");
+		await Shell.Current.GoToAsync("ConsultaPTLPage");
 	}
 
 	private async void OnRepartirArticuloClicked(object sender, EventArgs e)
 	{
-		await DisplayAlert("En Desarrollo", "La funcionalidad 'Repartir Artículo' estará disponible próximamente.", "OK");
+		await Shell.Current.GoToAsync("RepartirArticuloPage");
 	}
 
 	private async void OnCerrarSesionClicked(object sender, EventArgs e)
